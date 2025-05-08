@@ -1,0 +1,42 @@
+= Hello MCP Example
+:toc:
+:icons: font
+:source-highlighter: highlight.js
+
+Eine einfache Java "Hello World"-Anwendung.
+
+== Beschreibung
+
+Dieses Projekt demonstriert eine grundlegende Java-Anwendung mit einer einzigen Klasse, die "Hello MCP Example World!" auf der Konsole ausgibt.
+
+== Projektstruktur
+
+[source]
+----
+hello-mcp-example/
+├── src/
+│   └── main/
+│       └── java/
+│           └── com/
+│               └── example/
+│                   └── HelloWorld.java
+├── .gitignore
+└── README.adoc
+----
+
+== Ausführung
+
+Um das Projekt auszuführen:
+
+[source,bash]
+----
+# Kompilieren
+javac src/main/java/com/example/HelloWorld.java
+
+# Ausführen
+java -cp src/main/java com.example.HelloWorld
+----
+
+== Lizenz
+
+MIT
