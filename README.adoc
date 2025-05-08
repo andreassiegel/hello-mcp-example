@@ -1,13 +1,18 @@
-= Hello MCP Example
+= Hello MCP Example mit Spring Boot
 :toc:
 :icons: font
 :source-highlighter: highlight.js
 
-Eine einfache Java "Hello World"-Anwendung.
+Eine Spring Boot "Hello World"-Anwendung mit REST-API.
 
 == Beschreibung
 
-Dieses Projekt demonstriert eine grundlegende Java-Anwendung mit einer einzigen Klasse, die "Hello MCP Example World!" auf der Konsole ausgibt.
+Dieses Projekt demonstriert eine einfache Spring Boot Anwendung mit:
+
+* RESTful Web-Service
+* Actuator für Anwendungsmonitoring
+* Grundlegende Konfiguration 
+* JUnit-Tests
 
 == Projektstruktur
 
@@ -15,26 +20,70 @@ Dieses Projekt demonstriert eine grundlegende Java-Anwendung mit einer einzigen 
 ----
 hello-mcp-example/
 ├── src/
-│   └── main/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/
+│   │   │       └── example/
+│   │   │           └── HelloMcpExampleApplication.java
+│   │   └── resources/
+│   │       └── application.properties
+│   └── test/
 │       └── java/
 │           └── com/
 │               └── example/
-│                   └── HelloWorld.java
+│                   └── HelloMcpExampleApplicationTests.java
 ├── .gitignore
+├── pom.xml
 └── README.adoc
 ----
 
-== Ausführung
+== Voraussetzungen
 
-Um das Projekt auszuführen:
+* Java 17 oder höher
+* Maven 3.8 oder höher
+
+== Ausführung
 
 [source,bash]
 ----
-# Kompilieren
-javac src/main/java/com/example/HelloWorld.java
+# Die Anwendung mit Maven bauen
+mvn clean package
 
-# Ausführen
-java -cp src/main/java com.example.HelloWorld
+# Die Anwendung starten
+mvn spring-boot:run
+----
+
+Alternativ, nach dem Build:
+
+[source,bash]
+----
+java -jar target/hello-mcp-example-0.0.1-SNAPSHOT.jar
+----
+
+== Nutzung der Anwendung
+
+Sobald die Anwendung gestartet ist, können Sie folgende Endpunkte verwenden:
+
+|===
+| Endpunkt | Beschreibung
+
+| http://localhost:8080/ 
+| Gibt "Hello MCP Example World from Spring Boot!" zurück
+
+| http://localhost:8080/actuator/health
+| Zeigt Informationen zum Gesundheitszustand der Anwendung
+
+| http://localhost:8080/actuator/info
+| Zeigt allgemeine Informationen zur Anwendung
+|===
+
+== Tests
+
+Um die Tests auszuführen:
+
+[source,bash]
+----
+mvn test
 ----
 
 == Lizenz
